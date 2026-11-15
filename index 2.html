@@ -1,0 +1,90 @@
+<!doctype html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101b22"><meta name="description" content="14 шагов стеклянного моста: отмечайте левую или правую сторону и находите подходящие комбинации."><title>лабудилабудай</title><style>
+:root{color-scheme:dark;font-family:Manrope,system-ui,sans-serif;background:#101b22;color:#eef4f2}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 95% 0%,#173c3b66,transparent 45%)}main{max-width:540px;margin:auto;padding:26px 22px 24px}header{display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{color:#80dfc4;font-size:22px;white-space:nowrap}.brand span{font-size:9px;letter-spacing:1.5px;color:#b9cbc9;vertical-align:middle;margin-left:8px}.badge{font-size:9px;letter-spacing:1px;border:1px solid #34464d;border-radius:20px;padding:7px 10px;color:#b3c5c9;white-space:nowrap}.intro{padding:34px 0 24px}.eyebrow{font-size:9px;letter-spacing:2px;color:#8aada9;margin:0 0 14px}h1{font-size:49px;line-height:1.08;letter-spacing:-2.5px;margin:0;font-weight:800}h1 em{color:#8ce9cd;font-style:normal}.description{font-size:13px;line-height:1.7;color:#a0b3bc;margin:16px 0 0}.summary{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border:1px solid #36534f;background:linear-gradient(120deg,#203c3b,#192b30);border-radius:17px;margin-bottom:25px}.caption{display:block;font-size:11px;color:#a5babd}.summary strong{font-size:43px;line-height:1.3;letter-spacing:-2px}.total{color:#89a2a4;font-size:17px}.progress{text-align:right}.progress>span:first-child{display:block;font-size:14px;font-weight:700;margin-bottom:5px}.section-title{display:flex;justify-content:space-between;align-items:center;gap:10px}h2{font-size:15px;margin:0}.section-title>span{font-size:10px;color:#a6babd}.hint{font-size:11px;color:#8ba1a9;margin:7px 0 14px}.tiles{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}button{font:inherit;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}button:focus-visible{outline:3px solid #fff;outline-offset:3px}.tile{min-height:85px;padding:8px 0;border-radius:10px;border:1px solid #39505b;background:linear-gradient(145deg,#273c48b0,#192b36);color:#afc0c8;position:relative;transition:background .15s,border-color .15s}.tile small{display:block;font-size:9px;color:#8ca2ae}.tile strong{display:block;font-size:25px;font-weight:500;margin:4px 0 0}.tile .direction{font-size:8px;display:block;min-height:12px}.tile[data-value="1"]{background:#23483f;border-color:#76cfb3;color:#a0f4d6}.tile[data-value="2"]{background:#3d3047;border-color:#bf94cc;color:#edc3f5}.actions{display:flex;gap:10px;margin-top:14px}.secondary{flex:1;background:#1a2b35;border:1px solid #31444d;color:#bcccd1;border-radius:10px;padding:13px;font-size:12px}button:disabled{opacity:.35;cursor:default}.notice{font-size:12px;color:#a6d9c9;line-height:1.6;margin:16px 0 24px;min-height:20px}.notice.error{color:#ffb1b1}.results{border-top:1px solid #2b3e47;padding-top:22px}#result-count{background:#253d41;border-radius:6px;padding:4px 9px;color:#9ee5cd}.match{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #23353e}.match-id{font-size:10px;color:#7f959e;width:20px;flex-shrink:0}.digits{display:grid;grid-template-columns:repeat(14,minmax(0,1fr));gap:3px;flex:1}.digit{text-align:center;font:12px/26px ui-monospace,monospace;border-radius:4px;color:#b6c7cf;background:#1c2e38}.digit.active{background:#315b4e;color:#b2f5da}.empty{color:#acbec6;font-size:13px;padding:20px 0;line-height:1.6}footer{font-size:10px;text-align:center;color:#6f8994;padding-top:28px}@media(min-width:650px){main{padding-top:38px}.intro{padding-top:42px}h1{font-size:60px}.tile{min-height:95px}}@media(max-width:360px){main{padding-left:14px;padding-right:14px}.tiles{gap:5px}.brand span{font-size:8px;letter-spacing:.7px}.digits{gap:2px}.digit{font-size:11px}.section-title>span{font-size:9px}}
+/* Vertical bridge: fourteen tiles in seven rows. */
+.tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 24px;max-width:300px;margin:0 auto;position:relative;padding:10px 0;background:linear-gradient(90deg,transparent calc(50% - 1px),#3a535b calc(50% - 1px),#3a535b calc(50% + 1px),transparent calc(50% + 1px))}.tile{min-height:88px;padding:10px 14px;display:grid;grid-template-columns:24px 1fr;align-items:center;text-align:center}.tile small{align-self:start;text-align:left;font-size:10px}.tile strong{font-size:29px;margin:0;padding-right:24px}.tile .direction{grid-column:1/-1;font-size:11px;min-height:15px}.intro{padding-top:26px;padding-bottom:20px}h1{font-size:42px}.description{margin-top:12px}.actions{margin-top:18px}@media(min-width:650px){h1{font-size:50px}}
+.tiles{display:flex;flex-direction:column;gap:10px;max-width:340px;background:none;padding:0}.bridge-row{display:grid;grid-template-columns:24px 1fr 1fr;gap:12px;align-items:center}.step-number{font-size:10px;color:#8ca2ae;font-variant-numeric:tabular-nums}.tile{display:flex;flex-direction:column;justify-content:center;min-height:68px;padding:8px;border-radius:10px;gap:3px}.tile strong{font-size:25px;padding:0}.tile .direction{font-size:10px}.tile.dimmed{opacity:.4}.side-labels{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:340px;margin:19px auto 12px;padding-left:36px;text-align:center;font-size:10px;letter-spacing:1.2px;color:#9cb6bb}.summary{position:sticky;top:8px;z-index:2;box-shadow:0 8px 24px #101b2255}.intro{padding:22px 0 18px}h1{font-size:38px}.description{font-size:12px}.eyebrow{margin-bottom:10px}
+
+.tiles{position:relative;display:flex;flex-direction:column-reverse;isolation:isolate}.bridge-row{position:relative;z-index:1}.tile{position:relative}.tile.on-path{border:2px dashed #cdb57f;background:#3d3a2c;color:#f2dba5}.tile[data-value="1"],.tile[data-value="2"]{border:2px solid #85e4c0;background:#23483f;color:#b5f6dc}.tile.dimmed{opacity:.65}.path-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12px;color:#eddaa9;margin:16px 0}.path-controls[hidden]{display:none}.path-controls button{flex:0 0 auto;padding:10px 14px}.path-legend{display:flex;gap:18px;font-size:11px;margin:12px 0 18px;color:#d5c18d}.path-legend span:first-child{color:#85e4c0}#route{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:visible}#route-line{fill:none;stroke:#cdb57f;stroke-width:3;stroke-dasharray:5 5;stroke-linejoin:round;opacity:.75}
+
+.page-title{font-size:32px;letter-spacing:-1px;margin:4px 0 24px;text-align:center}.side-labels{margin-top:0}.board-wrap{position:relative}.blocked[hidden]{display:none}.blocked{position:absolute;inset:0;z-index:10;background:#101b22b8;backdrop-filter:blur(3px);display:flex;flex-direction:column;align-items:center;padding:20px}.blocked-card{position:sticky;top:calc(50vh - 75px);margin-top:20px;text-align:center;background:#20313c;border:1px solid #48606b;border-radius:16px;padding:22px;width:min(100%,280px);box-shadow:0 12px 40px #0005}.blocked-card p{font-size:14px;margin:0 0 16px}.blocked-card button{width:100%;background:#8ce9cd;color:#102a25;border:0;font-weight:700;min-height:48px}.tiles.is-blocked{pointer-events:none}
+
+#matches{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;padding:4px 2px 16px;scrollbar-width:thin;scrollbar-color:#638b81 #1c2e38;-webkit-overflow-scrolling:touch}#matches:focus-visible{outline:2px solid #8ce9cd;outline-offset:4px}.path-card{flex:0 0 86%;min-width:0;max-width:320px;scroll-snap-align:start;border:1px solid #3b515a;border-radius:16px;padding:16px;background:#172831}.card-title{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:16px}.card-title h3{font-size:13px;margin:0;font-weight:700}.card-title>span{color:#91a9b1;font-size:11px;white-space:nowrap}.mini-head{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 10px;padding-left:27px;text-align:center;font-size:9px;letter-spacing:.7px;color:#9db4bb}.mini-bridge{display:flex;flex-direction:column-reverse;gap:6px}.mini-row{display:grid;grid-template-columns:17px 1fr 1fr;align-items:center;gap:10px}.mini-number{font-size:9px;color:#8ca2ae;text-align:right;font-variant-numeric:tabular-nums}.mini-tile{display:flex;align-items:center;justify-content:center;height:28px;border:1px solid #334852;border-radius:5px;background:#20333e;color:#6b838d;font-size:11px}.mini-tile.route-tile{border:1px dashed #b8a372;background:#3d3a2c;color:#f2dba5}.mini-tile.confirmed-tile{border:1px solid #85e4c0;background:#23483f;color:#b5f6dc}#matches>.empty{flex:1}
+
+/* Compact board sized to the phone viewport; reference cards stay secondary. */
+main{padding-top:12px}.page-title{font-size:25px;line-height:1.15;margin:0 0 12px}.side-labels{margin:0 auto 8px;font-size:9px}.tiles{gap:4px;max-width:270px}.bridge-row{grid-template-columns:22px 1fr 1fr;gap:10px}.tile{min-height:0;height:clamp(20px,calc((100svh - 180px)/14 - 4px),40px);padding:2px 6px;border-radius:6px;gap:0}.tile strong{font-size:16px;line-height:1}.tile .direction{display:none}.step-number{font-size:9px}.side-labels{max-width:270px;padding-left:32px;gap:10px}.actions{margin-top:10px;gap:8px}.actions .secondary{padding:9px;font-size:11px;min-height:34px}.notice{margin:12px 0 18px;font-size:11px}.path-card{flex:0 0 58%;max-width:220px;padding:12px}.card-title{gap:6px;margin-bottom:10px}.card-title h3{font-size:11px}.card-title>span{font-size:9px}.mini-head{font-size:8px;letter-spacing:0;gap:6px;padding-left:22px}.mini-row{grid-template-columns:16px 1fr 1fr;gap:6px}.mini-tile{height:20px;border-radius:4px;font-size:9px}.mini-bridge{gap:4px}#matches{gap:10px}
+
+/* Narrow reference cards with square tiles. */
+.path-card{flex:0 0 140px;max-width:140px;padding:10px}.card-title{align-items:flex-start;flex-direction:column;gap:3px;margin-bottom:9px}.card-title h3{font-size:10px}.mini-head{padding-left:20px;gap:6px;font-size:7px;letter-spacing:0}.mini-row{grid-template-columns:14px minmax(0,1fr) minmax(0,1fr);gap:6px}.mini-tile{height:auto;aspect-ratio:1 / 1;width:100%;font-size:10px;border-radius:4px}.mini-number{font-size:8px}.mini-bridge{gap:5px}
+</style></head><body><main><h1 class="page-title">лабудилабудай</h1><div class="side-labels"><span>1 · ЛЕВАЯ</span><span>2 · ПРАВАЯ</span></div><div class="board-wrap"><div id="tiles" class="tiles"><svg id="route" aria-hidden="true"><polyline id="route-line"/></svg></div><div id="blocked" class="blocked" hidden><div class="blocked-card"><p>Нет подходящей комбинации</p><button id="undo-blocked" class="secondary">Отменить</button></div></div></div><div class="actions"><button id="undo" class="secondary">Отменить</button><button id="reset" class="secondary">Сбросить всё</button></div><p id="notice" class="notice" aria-live="polite"></p><section class="results"><div class="section-title"><h2>Возможные комбинации</h2><span id="result-count">21</span></div><p class="hint">Листай карточки вбок. Шаг 1 — внизу, шаг 14 — наверху.</p><div id="matches" tabindex="0" role="region" aria-label="Карточки возможных комбинаций, листайте горизонтально"></div></section><footer>1 — левая плитка &nbsp;·&nbsp; 2 — правая плитка</footer></main><script>
+const combinations = `111 212 112 212 11
+111 222 122 212 12
+112 112 111 122 11
+112 112 112 121 11
+112 112 112 212 12
+112 121 111 112 11
+112 121 112 212 11
+112 121 211 122 21
+112 122 111 211 21
+112 211 211 122 21
+112 212 112 121 11
+211 121 222 112 22
+211 122 211 211 22
+211 122 211 221 11
+211 122 211 221 22
+212 112 111 112 22
+212 112 111 122 22
+212 121 111 212 22
+212 121 111 212 11
+212 121 222 212 21
+212 122 211 221 22`.split('\n').map((line,index)=>({id:index+1,values:line.replaceAll(' ','').split('').map(Number)}));
+const filterMatches = state => combinations.filter(c=>state.every((v,i)=>v===0||c.values[i]===v));
+
+
+const $=id=>document.getElementById(id);
+let state=Array(14).fill(0),history=[],pathIndex=0;
+try{const saved=JSON.parse(localStorage.getItem('glass-path-v1'));if(Array.isArray(saved)&&saved.length===14&&saved.every(v=>[0,1,2].includes(v)))state=saved;}catch{}
+const tiles=state.map((_,i)=>{
+ const row=document.createElement('div');row.className='bridge-row';
+ const label=document.createElement('span');label.className='step-number';label.textContent=i+1;row.append(label);
+ const buttons=[1,2].map(side=>{
+  const button=document.createElement('button');button.className='tile';
+  button.innerHTML=`<strong>${side}</strong><span class="direction">${side===1?'левая':'правая'}</span>`;
+  button.addEventListener('click',()=>{if(!filterMatches(state).length)return;history.push([...state]);state[i]=state[i]===side?0:side;pathIndex=0;render();});
+  row.append(button);return button;
+ });$('tiles').append(row);return buttons;
+});
+function drawRoute(){
+ const matches=filterMatches(state),path=state.some(Boolean)?matches[pathIndex]:null;
+ if(!path){$('route-line').setAttribute('points','');return;}
+ const bounds=$('tiles').getBoundingClientRect();
+ const points=path.values.map((side,i)=>{const rect=tiles[i][side-1].getBoundingClientRect();return `${rect.left-bounds.left+rect.width/2},${rect.top-bounds.top+rect.height/2}`;});
+ $('route-line').setAttribute('points',points.join(' '));
+}
+function render(){
+ const matches=filterMatches(state),filled=state.filter(Boolean).length;
+ if(pathIndex>=matches.length)pathIndex=0;
+ const path=filled?matches[pathIndex]:null;
+ tiles.forEach((buttons,i)=>buttons.forEach((button,index)=>{
+  const side=index+1,selected=state[i]===side,onPath=!!path&&path.values[i]===side;
+  button.dataset.value=selected?side:0;button.classList.toggle('on-path',onPath&&!selected);
+  button.classList.toggle('dimmed',!!path&&!onPath);
+  button.setAttribute('aria-pressed',String(selected));
+  button.setAttribute('aria-label',`Шаг ${i+1}, ${side===1?'левая, 1':'правая, 2'}${selected?', выбрана':onPath?', возможный путь':''}`);
+ }));
+ $('result-count').textContent=matches.length;$('undo').disabled=!history.length;$('reset').disabled=!filled;
+ const blocked=matches.length===0;$('blocked').hidden=!blocked;$('tiles').classList.toggle('is-blocked',blocked);$('tiles').inert=blocked;if(blocked)requestAnimationFrame(()=>$('undo-blocked').focus({preventScroll:true}));
+ 
+ $('notice').className='notice'+(!matches.length?' error':'');
+ $('notice').textContent=!matches.length?'Совпадений нет. Проверь выбор или отмени последний шаг.':!filled?'Начни с шага 1 внизу или отметь любую известную сторону.':matches.length===1?'Осталась одна комбинация. Её путь показан на плитках.':`Показан один из ${matches.length} возможных путей. Пунктир — предположение по оставшимся комбинациям.`;
+ $('matches').innerHTML=matches.length?matches.map((c,index)=>`<article class="path-card" aria-label="Комбинация ${c.id}, ${index+1} из ${matches.length}"><div class="card-title"><h3>Комбинация ${String(c.id).padStart(2,'0')}</h3><span>${index+1} / ${matches.length}</span></div><div class="mini-head"><span>1 · ЛЕВАЯ</span><span>2 · ПРАВАЯ</span></div><div class="mini-bridge">${c.values.map((v,i)=>`<div class="mini-row"><span class="mini-number">${i+1}</span>${[1,2].map(side=>`<span class="mini-tile ${v===side?'route-tile':''} ${state[i]===side?'confirmed-tile':''}" aria-label="Шаг ${i+1}, ${side===1?'левая':'правая'}${v===side?', путь':''}${state[i]===side?', выбрана':''}">${v===side?side:''}</span>`).join('')}</div>`).join('')}</div></article>`).join(''):'<p class="empty">Нет подходящих комбинаций.</p>';
+ $('matches').scrollLeft=0;
+ try{localStorage.setItem('glass-path-v1',JSON.stringify(state));}catch{}
+ requestAnimationFrame(drawRoute);
+}
+$('undo').addEventListener('click',()=>{if(history.length){state=history.pop();pathIndex=0;render();}});
+$('reset').addEventListener('click',()=>{if(state.some(Boolean)){history.push([...state]);state=Array(14).fill(0);pathIndex=0;render();}});
+$('undo-blocked').addEventListener('click',()=>{if(history.length){state=history.pop();}else{state=Array(14).fill(0);}pathIndex=0;render();});
+new ResizeObserver(drawRoute).observe($('tiles'));
+render();
+
+</script></body></html>
