@@ -15,7 +15,21 @@ main{padding-top:12px}.page-title{font-size:25px;line-height:1.15;margin:0 0 12p
 
 /* Narrow reference cards with square tiles. */
 .path-card{flex:0 0 140px;max-width:140px;padding:10px}.card-title{align-items:flex-start;flex-direction:column;gap:3px;margin-bottom:9px}.card-title h3{font-size:10px}.mini-head{padding-left:20px;gap:6px;font-size:7px;letter-spacing:0}.mini-row{grid-template-columns:14px minmax(0,1fr) minmax(0,1fr);gap:6px}.mini-tile{height:auto;aspect-ratio:1 / 1;width:100%;font-size:10px;border-radius:4px}.mini-number{font-size:8px}.mini-bridge{gap:5px}
-</style></head><body><main><h1 class="page-title">лабудилабудай</h1><div class="side-labels"><span>1 · ЛЕВАЯ</span><span>2 · ПРАВАЯ</span></div><div class="board-wrap"><div id="tiles" class="tiles"><svg id="route" aria-hidden="true"><polyline id="route-line"/></svg></div><div id="blocked" class="blocked" hidden><div class="blocked-card"><p>Нет подходящей комбинации</p><button id="undo-blocked" class="secondary">Отменить</button></div></div></div><div class="actions"><button id="undo" class="secondary">Отменить</button><button id="reset" class="secondary">Сбросить всё</button></div><p id="notice" class="notice" aria-live="polite"></p><section class="results"><div class="section-title"><h2>Возможные комбинации</h2><span id="result-count">21</span></div><p class="hint">Листай карточки вбок. Шаг 1 — внизу, шаг 14 — наверху.</p><div id="matches" tabindex="0" role="region" aria-label="Карточки возможных комбинаций, листайте горизонтально"></div></section><footer>1 — левая плитка &nbsp;·&nbsp; 2 — правая плитка</footer></main><script>
+</style></head><body>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=114265702', 'ym');
+
+    ym(114265702, 'init', {ssr:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/114265702" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<main><h1 class="page-title">лабудилабудай</h1><div class="side-labels"><span>1 · ЛЕВАЯ</span><span>2 · ПРАВАЯ</span></div><div class="board-wrap"><div id="tiles" class="tiles"><svg id="route" aria-hidden="true"><polyline id="route-line"/></svg></div><div id="blocked" class="blocked" hidden><div class="blocked-card"><p>Нет подходящей комбинации</p><button id="undo-blocked" class="secondary">Отменить</button></div></div></div><div class="actions"><button id="undo" class="secondary">Отменить</button><button id="reset" class="secondary">Сбросить всё</button></div><p id="notice" class="notice" aria-live="polite"></p><section class="results"><div class="section-title"><h2>Возможные комбинации</h2><span id="result-count">21</span></div><p class="hint">Листай карточки вбок. Шаг 1 — внизу, шаг 14 — наверху.</p><div id="matches" tabindex="0" role="region" aria-label="Карточки возможных комбинаций, листайте горизонтально"></div></section><footer>1 — левая плитка &nbsp;·&nbsp; 2 — правая плитка</footer></main><script>
 const combinations = `111 212 112 212 11
 111 222 122 212 12
 112 112 111 122 11
