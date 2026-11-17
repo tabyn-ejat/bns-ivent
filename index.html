@@ -15,6 +15,61 @@ main{padding-top:12px}.page-title{font-size:25px;line-height:1.15;margin:0 0 12p
 
 /* Narrow reference cards with square tiles. */
 .path-card{flex:0 0 140px;max-width:140px;padding:10px}.card-title{align-items:flex-start;flex-direction:column;gap:3px;margin-bottom:9px}.card-title h3{font-size:10px}.mini-head{padding-left:20px;gap:6px;font-size:7px;letter-spacing:0}.mini-row{grid-template-columns:14px minmax(0,1fr) minmax(0,1fr);gap:6px}.mini-tile{height:auto;aspect-ratio:1 / 1;width:100%;font-size:10px;border-radius:4px}.mini-number{font-size:8px}.mini-bridge{gap:5px}
+
+/* Responsive shell: mobile bridge and desktop reference sidebar. */
+.page-header{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0 12px;margin-bottom:8px;background:#101b22f5;backdrop-filter:blur(12px)}
+.page-header .page-title{margin:0;font-size:22px;text-align:left}
+.remaining{display:flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid #365b50;border-radius:12px;background:linear-gradient(120deg,#23473c,#192e31);flex-shrink:0}
+.remaining-label{font-size:10px;line-height:1.35;color:#b1c9c3}
+.remaining strong{font-size:24px;line-height:1;color:#a6f3d8;font-variant-numeric:tabular-nums}
+.remaining-total{font-size:11px;color:#89a8a0}
+.workspace,.bridge-panel{min-width:0}
+.desktop-hint{display:none}
+@media(max-width:380px){.page-header{gap:8px}.page-header .page-title{font-size:19px}.remaining{gap:6px;padding:7px 9px}.remaining-label{font-size:9px}.remaining strong{font-size:22px}}
+@media(min-width:900px){
+ main{max-width:1440px;padding:20px 36px 24px}
+ .page-header{padding:14px 0 20px;margin-bottom:24px;border-bottom:1px solid #2b3e47}
+ .page-header .page-title{font-size:30px}
+ .remaining{gap:16px;padding:12px 18px;border-radius:14px}
+ .remaining-label{font-size:12px}.remaining strong{font-size:30px}.remaining-total{font-size:13px}
+ .workspace{display:grid;grid-template-columns:minmax(300px,380px) minmax(0,1fr);gap:36px;align-items:start}
+ .bridge-panel{position:sticky;top:114px;padding:22px 24px 8px;border:1px solid #30454d;border-radius:20px;background:#15252d}
+ .tiles,.side-labels{max-width:310px}
+ .tile{height:clamp(22px,calc((100svh - 380px)/14 - 4px),40px)}.tile strong{font-size:18px}
+ .side-labels{margin-bottom:12px}.actions{margin-top:16px}
+ .notice{line-height:1.6;margin-bottom:10px}
+ .results{border-top:0;padding-top:4px;min-width:0}
+ .section-title h2{font-size:18px}.section-title>span{font-size:12px}
+ .hint{font-size:12px;line-height:1.6;margin:10px 0 16px}
+ .mobile-hint{display:none}.desktop-hint{display:inline}
+ #matches{display:flex;flex-wrap:nowrap;gap:12px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;align-items:flex-start;padding:2px 2px 16px;scrollbar-gutter:auto}
+ .path-card{flex:0 0 160px;width:160px;max-width:none;padding:12px}
+ .mini-row{grid-template-columns:14px minmax(0,1fr) minmax(0,1fr)}
+ .mini-tile{aspect-ratio:auto;height:26px}
+ #matches>.empty{grid-column:1/-1}
+ footer{padding-top:24px}
+}
+@media(min-width:1200px){.workspace{gap:48px;grid-template-columns:400px minmax(0,1fr)}.bridge-panel{padding-left:30px;padding-right:30px}}
+
+
+/* Desktop refinements: counter replaces the brand; larger bridge controls. */
+@media(min-width:900px){
+ main{padding-top:12px}
+ .page-header{padding:8px 0 12px;margin-bottom:16px;justify-content:flex-start}
+ .page-header .page-title{display:none}
+ .remaining{width:380px;justify-content:space-between;padding:10px 18px}
+ .remaining-label br{display:none}
+ .remaining-label br::after{content:" "}
+ .remaining-label{font-size:13px}
+ .remaining strong{font-size:28px}
+ .results>.section-title{display:none}
+ .results>.hint{margin-top:0;margin-bottom:14px}
+ .bridge-panel{top:96px;padding-top:16px}
+ .tile{height:clamp(26px,calc((100svh - 280px)/14 - 4px),46px)}
+ .tile strong{font-size:20px}
+}
+@media(min-width:1200px){.remaining{width:400px}}
+
 </style></head><body>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -29,7 +84,7 @@ main{padding-top:12px}.page-title{font-size:25px;line-height:1.15;margin:0 0 12p
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/114265702" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-<main><h1 class="page-title">лабудилабудай</h1><div class="side-labels"><span>1 · ЛЕВАЯ</span><span>2 · ПРАВАЯ</span></div><div class="board-wrap"><div id="tiles" class="tiles"><svg id="route" aria-hidden="true"><polyline id="route-line"/></svg></div><div id="blocked" class="blocked" hidden><div class="blocked-card"><p>Нет подходящей комбинации</p><button id="undo-blocked" class="secondary">Отменить</button></div></div></div><div class="actions"><button id="undo" class="secondary">Отменить</button><button id="reset" class="secondary">Сбросить всё</button></div><p id="notice" class="notice" aria-live="polite"></p><section class="results"><div class="section-title"><h2>Возможные комбинации</h2><span id="result-count">21</span></div><p class="hint">Листай карточки вбок. Шаг 1 — внизу, шаг 14 — наверху.</p><div id="matches" tabindex="0" role="region" aria-label="Карточки возможных комбинаций, листайте горизонтально"></div></section><footer>1 — левая плитка &nbsp;·&nbsp; 2 — правая плитка</footer></main><script>
+<main><header class="page-header"><h1 class="page-title">лабудилабудай</h1><div class="remaining" role="status" aria-live="polite" aria-atomic="true"><span class="remaining-label">Осталось <br>комбинаций</span><div><strong id="remaining-count">21</strong><span class="remaining-total"> / 21</span></div></div></header><div class="workspace"><section class="bridge-panel" aria-label="Стеклянный мост"><div class="side-labels"><span>1 · ЛЕВАЯ</span><span>2 · ПРАВАЯ</span></div><div class="board-wrap"><div id="tiles" class="tiles"><svg id="route" aria-hidden="true"><polyline id="route-line"/></svg></div><div id="blocked" class="blocked" hidden><div class="blocked-card"><p>Нет подходящей комбинации</p><button id="undo-blocked" class="secondary">Отменить</button></div></div></div><div class="actions"><button id="undo" class="secondary">Отменить</button><button id="reset" class="secondary">Сбросить всё</button></div><p id="notice" class="notice" aria-live="polite"></p></section><section class="results"><div class="section-title"><h2>Возможные комбинации</h2><span id="result-count">21</span></div><p class="hint"><span class="mobile-hint">Листай карточки вбок.</span><span class="desktop-hint">Листай карточки вбок, чтобы увидеть все варианты.</span> Шаг 1 — внизу, шаг 14 — наверху.</p><div id="matches" tabindex="0" role="region" aria-label="Карточки возможных комбинаций"></div></section></div><footer>1 — левая плитка &nbsp;·&nbsp; 2 — правая плитка</footer></main><script>
 const combinations = `111 212 112 212 11
 111 222 122 212 12
 112 112 111 122 11
@@ -85,7 +140,7 @@ function render(){
   button.setAttribute('aria-pressed',String(selected));
   button.setAttribute('aria-label',`Шаг ${i+1}, ${side===1?'левая, 1':'правая, 2'}${selected?', выбрана':onPath?', возможный путь':''}`);
  }));
- $('result-count').textContent=matches.length;$('undo').disabled=!history.length;$('reset').disabled=!filled;
+ $('remaining-count').textContent=matches.length;$('result-count').textContent=matches.length;$('undo').disabled=!history.length;$('reset').disabled=!filled;
  const blocked=matches.length===0;$('blocked').hidden=!blocked;$('tiles').classList.toggle('is-blocked',blocked);$('tiles').inert=blocked;if(blocked)requestAnimationFrame(()=>$('undo-blocked').focus({preventScroll:true}));
  
  $('notice').className='notice'+(!matches.length?' error':'');
